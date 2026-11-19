@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>ContactHub</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+
+<body>
+    <nav class="navbar bg-white pt-3 pb-2">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex align-items-center">
+                    <div class="foricon me-2 rounded-4">
+                        <i class="fa-solid fa-address-book"></i>
+                    </div>
+                    <div class="fortitle">
+                        <h4 class="fw-bold m-0">Contact<span class="fw-bold fs-4">Hub</span></h4>
+                        <span class="text-secondary">Smart Contact Manager</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="rounded-3" onclick="openForm()">+Add Contact</button>
+                    <div class="foricons d-flex">
+                        <div class="ms-4 d-sm-none d-md-inline-block">
+                            <i class="fa-solid fa-bell text-secondary"></i>
+                        </div>
+                        <div class=" ms-4 d-sm-none d-md-inline-block">
+                            <i class="fa-solid fa-gear text-secondary"></i>
+                        </div>
+                    </div>
+                    <div class="forimg">
+                        <img class="ms-4 rounded-4" src="img/avatar-2.jpg" alt="photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="header pt-4 pb-4">
+        <div class="container">
+            <div class="row align-items-center g-2">
+                <div class="col-md-4 col-sm-6">
+                    <div class="inner d-flex rounded-4 p-3 bg-white align-items-center gap-3">
+                        <div class="foricon blue rounded-3">
+                            <i class="fa-solid fa-users text-white"></i>
+                        </div>
+                        <div class="value">
+                            <span class="text-secondary text-uppercase">total</span>
+                            <p class="total fw-bolder fs-5"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="inner d-flex rounded-4 p-3 bg-white align-items-center gap-3">
+                        <div class="foricon orange rounded-3">
+                            <i class="fa-solid fa-star text-white"></i>
+                        </div>
+                        <div class="value">
+                            <span class="text-secondary text-uppercase">Favorites</span>
+                            <p class="totalfav fw-bolder fs-5"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="inner d-flex rounded-4 p-3 bg-white align-items-center gap-3">
+                        <div class="foricon red rounded-3">
+                            <i class="fa-solid fa-heart-pulse text-white"></i>
+                        </div>
+                        <div class="value">
+                            <span class="text-secondary text-uppercase">Emergency</span>
+                            <p class="totalemr fw-bolder fs-5"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main pb-5 w-100">
+        <div class="container">
+            <div class="row g-3">
+                <div class="left col-xl-9 col-sm-12">
+                    <div class="inner">
+                        <div class="head">
+                            <h3 class="fw-bold m-0">All Contacts</h3>
+                            <p class="text-secondary">Manage and organize your 3 contacts</p>
+                            <input type="text" id="search" oninput="search()"
+                                class="w-100 mt-3 mb-3 border fa-border-none p-2 rounded-3 fs-6"
+                                placeholder="🔍      Search by name, phone or email">
+                            <label for="search"></label>
+                        </div>
+                        <div class="contant row g-3">
+                            <div class="nocontact">
+                                <div class="h-50 w-100 p-5 text-center">
+                                    <div class="forno p-4 rounded-4 m-auto mb-2">
+                                        <i class="fa-solid fa-address-book"></i>
+                                    </div>
+                                    No contacts found
+                                    <p class="text-secondary">Click "Add Contact" to get started</p>
+                                </div>
+                            </div>
+                            <!-- <div class="item col-sm-12 col-md-6">
+                                <div class="inner rounded-4 bg-white overflow-hidden">
+                                    <div class="ps-3 pe-3 pt-3">
+                                        <div class="maininformation d-flex gap-3 align-items-center">
+                                            <div class="forimg position-relative">
+                                                <img src="img/user.png" class="rounded-3" alt="photo">
+                                                <div class="fav foricon position-absolute badge p-1">
+                                                    <i class="fa-solid fa-star text-white"></i>
+                                                </div>
+                                                <div class="emricon foricon position-absolute badge p-1">
+                                                    <i class="fa-solid fa-heart-pulse text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="name fw-bold mb-1">Kylan Hogan</p>
+                                                <div class="phone foricon d-inline-block rounded-3">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                </div>
+                                                <span class="number text-secondary">+201573163755</span>
+                                            </div>
+                                        </div>
+                                        <div class="information pt-3 pb-3">
+                                            <div class="d-flex gap-3 pb-1">
+                                                <div class="foricon mess rounded-3">
+                                                    <i class="fa-solid fa-message"></i>
+                                                </div>
+                                                cyjikevoh@mailinator.com
+                                            </div>
+                                            <div class="d-flex gap-3 pb-1">
+                                                <div class="foricon loc rounded-3">
+                                                    <i class="fa-solid fa-location-dot"></i>
+                                                </div>
+                                                Velit aut dicta ut m
+                                            </div>
+                                            <div class="category d-flex gap-2">
+                                                <div class="group p-1 rounded-3 mt-1">
+                                                    group
+                                                </div>
+                                                <div class="emr p-1 rounded-3 mt-1">
+                                                    <i class="fa-solid fa-heart-pulse"></i>
+                                                    Emergency
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="footer d-flex justify-content-between align-items-center pt-2 pb-2 ps-3 pe-3">
+                                        <div class="d-flex gap-2">
+                                            <div class="phone rounded-3 p-1">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                            <div class="mess rounded-3 p-1">
+                                                <i class="fa-solid fa-message"></i>
+                                            </div>
+                                        </div>
+                                        <div class="edit d-flex gap-2 text-secondary">
+                                            <div class="star rounded-3 p-1">
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="emri rounded-3 p-1">
+                                                <i class="fa-solid fa-heart-pulse"></i>
+                                            </div>
+                                            <div class="update rounded-3 p-1">
+                                                <i class="fa-solid fa-pencil "></i>
+                                            </div>
+                                            <div class="delete rounded-3 p-1">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="right col-xl-3 col-sm-12 position-sticky">
+                    <div class="inner">
+                        <div class="favorites mb-3 rounded-4 overflow-hidden">
+                            <div class="head d-flex align-items-center gap-3 p-3">
+                                <div class="foricon p-2 rounded-3">
+                                    <i class="fa-solid fa-star text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="name fw-bold">Favorites</p>
+                                    <span class="number text-secondary">Quick access to starred contacts</span>
+                                </div>
+                            </div>
+                            <div class="favcontact p-3 bg-white">
+                                <div class="nofav p-3 text-center text-secondary">
+                                    <h4>No favorites yet</h4>
+                                </div>
+                                <!-- <div class="contact d-flex justify-content-between align-items-center p-2 rounded-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="forimg">
+                                            <img src="img/user.png" class="rounded-3" alt="photo">
+                                        </div>
+                                        <div>
+                                            <p class="name fw-bold">Kylan Hogan</p>
+                                            <span class="number text-secondary">+201573163755</span>
+                                        </div>
+                                    </div>
+                                    <div class="phoneicon rounded-4 p-1">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="emergency mb-3 rounded-4 overflow-hidden">
+                            <div class="head d-flex align-items-center gap-3 p-3">
+                                <div class="foricon p-2 rounded-3">
+                                    <i class="fa-solid fa-heart-pulse text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="name fw-bold">Emergency</p>
+                                    <span class="number text-secondary">Quick access to starred contacts</span>
+                                </div>
+                            </div>
+                            <div class="emrcontact p-3 bg-white">
+                                <div class="noemr p-3 text-center text-secondary">
+                                    <h6>No emergency contacts</h6>
+                                </div>
+                                <!-- <div class="contact d-flex justify-content-between align-items-center p-2 rounded-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="forimg">
+                                            <img src="img/user.png" class="rounded-3" alt="photo">
+                                        </div>
+                                        <div>
+                                            <p class="name fw-bold">Kylan Hogan</p>
+                                            <span class="number text-secondary">+201573163755</span>
+                                        </div>
+                                    </div>
+                                    <div class="phoneicon rounded-4 p-1">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="Form text-center pb-4 m-auto d-none">
+        <div class="container w-50 rounded-4 bg-white min-vh-100">
+            <div class="contact-modal p-3">
+                <h4 class="pb-2">Add New Contact</h4>
+                <div class="">
+                    <div class="photosec pb-2">
+                        <div class="forimg w-25 h-25 m-auto">
+                            <img class="profile" src="img/user.png" alt="photo">
+                        </div>
+                        <input type="file" name="img" id="img" class="mt-3 mb-2 w-50 m-auto">
+                        <p id="IMG" class="text-danger mt-1 d-none">Please choose new image with image's types
+                        </p>
+                    </div>
+                    <div class="input-group pb-3">
+                        <label for="fullname">
+                            Full Name *
+                        </label>
+                        <input id="fullname" oninput="validation(this,'Name')" required
+                            class="full-name w-100 rounded-3 border fa-border-none p-2" type="text"
+                            placeholder="Enter full name">
+                        <p id="Name" class="text-danger mt-1 d-none">Name should contain only letters and spaces (2-50
+                            characters)
+                        </p>
+
+                    </div>
+
+                    <div class="input-group pb-3">
+                        <label for="phonenum">
+                            Phone Number *
+                        </label>
+                        <input id="phonenum" oninput="validation(this,'Phone')"
+                            class="phone-num w-100 rounded-3 border fa-border-none p-2" required type="text"
+                            placeholder="e.g., 01012345678">
+                        <p id="Phone" class="text-danger mt-1 d-none">Please enter a valid Egyptian phone number
+                        </p>
+                    </div>
+
+                    <div class="input-group pb-3">
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input id="email" oninput="validation(this,'Email')"
+                            class="email w-100 rounded-3 border fa-border-none p-2" type="email"
+                            placeholder="name@example.com">
+                        <p id="Email" class="text-danger mt-1 d-none">Please enter a valid email address
+                        </p>
+                    </div>
+
+                    <div class="input-group pb-3">
+                        <label for="add">
+                            Address
+                        </label>
+
+                        <input id="add" oninput="validation(this,'Add')"
+                            class="add w-100 rounded-3 border fa-border-none p-2" type="text"
+                            placeholder="Enter address">
+                        <p id="Add" class="text-danger mt-1 d-none">Please enter a valid address
+                        </p>
+                    </div>
+
+                    <div class="input-group pb-3">
+                        <label for="group">
+                            Group
+                        </label>
+                        <select id="group" oninput="validation(this,'Group')"
+                            class="group w-100 rounded-3 border fa-border-none p-2 text-secondary">
+                            <option value="" disabled selected>Select a group</option>
+                            <option value="family">Family</option>
+                            <option value="work">Work</option>
+                            <option value="friend">Friend</option>
+                            <option value="school">School</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <p id="Group" class="text-danger mt-1 d-none">Must be a family ,or work ,or friend ,or school ,or
+                        other (if else)
+                    </p>
+
+                    <div class="input-group pb-3">
+                        <label>
+                            Notes
+                        </label>
+                        <textarea class="notes w-100 rounded-3 border fa-border-none" rows="3"
+                            placeholder="Write something about this contact..."></textarea>
+                    </div>
+
+                    <div class="contact-options pb-3 pt-2">
+
+                        <input class="favorite" type="checkbox" id="favorite" name="contactType" value="favorite">
+                        <label for="favorite">Favorites</label>
+
+                        <input class="emergency" type="checkbox" id="emergency" name="contactType" value="emergency">
+                        <label for="emergency">Emergency</label>
+                    </div>
+
+                    <div class="buttons pt-3 pb-2 d-flex gap-3">
+
+                        <button onclick="cloceForm()" type="button" class="btn btn-secondary w-50">
+                            Cancel
+                        </button>
+                        <button onclick="addContact()" type="submit" class="savebtn btn w-50">
+                            Save
+                        </button>
+                        <button onclick="updateContact()" type="submit" class="updatebtn btn btn-info w-50 d-none">
+                            update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
